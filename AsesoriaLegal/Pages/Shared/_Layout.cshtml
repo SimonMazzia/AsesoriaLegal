@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Asesoría Legal Global</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="brand" asp-page="/Index">
+                <a class="navbar-brand" asp-page="/Index">
+                    <img src="wwwroot/Images/logo2.png"
+                         alt="Logo de Asesoría Legal Global"
+                         class="navbar-logo" />
+                    <span>Asesoría Legal Global</span>
+                </a>
+            </a>
+
+            <div class="nav-links">
+                <a asp-page="/Index">Inicio</a>
+                <a asp-page="/Registro">Registro</a>
+                <a asp-page="/Login">Iniciar sesión</a>
+                <a asp-page="/Documentos">Mis documentos</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <p>
+            &copy; @DateTime.Now.Year Asesoría Legal Global.
+            Todos los derechos reservados.
+        </p>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

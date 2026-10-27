@@ -1,0 +1,86 @@
+﻿@page
+@model AsesoriaLegal.Pages.RegistroModel
+
+@{
+    ViewData["Title"] = "Registro de clientes";
+}
+
+<div class="form-card">
+    <h1>Registro de clientes</h1>
+    <p>Creá tu cuenta en Asesoría Legal Global.</p>
+
+    <form method="post">
+        <div asp-validation-summary="ModelOnly"
+             class="validation-error"></div>
+
+        <div class="form-group">
+            <label asp-for="Email">Correo electrónico</label>
+            <input asp-for="Email" type="email"
+                   placeholder="ejemplo@correo.com" />
+            <span asp-validation-for="Email"
+                  class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NombreUsuario">Nombre de usuario</label>
+            <input asp-for="NombreUsuario"
+                   placeholder="Elegí un usuario" />
+            <span asp-validation-for="NombreUsuario"
+                  class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Edad">Edad</label>
+            <input asp-for="Edad" type="number"
+                   min="16" max="120" />
+            <span asp-validation-for="Edad"
+                  class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Nombre">Nombre</label>
+            <input asp-for="Nombre"
+                   placeholder="Tu nombre" />
+            <span asp-validation-for="Nombre"
+                  class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Apellido">Apellido</label>
+            <input asp-for="Apellido"
+                   placeholder="Tu apellido" />
+            <span asp-validation-for="Apellido"
+                  class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Contrasena">Contraseña</label>
+            <input asp-for="Contrasena" type="password" />
+            <span asp-validation-for="Contrasena"
+                  class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ConfirmarContrasena">
+                Confirmar contraseña
+            </label>
+            <input asp-for="ConfirmarContrasena"
+                   type="password" />
+            <span asp-validation-for="ConfirmarContrasena"
+                  class="validation-error"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">
+            Registrar
+        </button>
+
+        @if (!string.IsNullOrEmpty(Model.Mensaje))
+        {
+            <p class="success-message">@Model.Mensaje</p>
+        }
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

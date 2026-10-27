@@ -1,0 +1,37 @@
+﻿@page
+@model AsesoriaLegal.Pages.LoginModel
+
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<div class="form-card">
+    <h1>Iniciar sesión</h1>
+    <p>Ingresá a tu espacio personal.</p>
+
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="NombreUsuario">Nombre de usuario</label>
+            <input asp-for="NombreUsuario" required />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Contrasena">Contraseña</label>
+            <input asp-for="Contrasena" type="password" required />
+        </div>
+
+        <button type="submit" class="btn-primary">
+            Ingresar
+        </button>
+
+        @if (!string.IsNullOrEmpty(Model.Mensaje))
+        {
+            <p class="validation-error">@Model.Mensaje</p>
+        }
+    </form>
+
+    <p>
+        ¿Todavía no tenés cuenta?
+        <a asp-page="/Registro">Registrate aquí</a>
+    </p>
+</div>
